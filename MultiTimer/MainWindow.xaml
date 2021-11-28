@@ -1,0 +1,28 @@
+﻿<Window x:Class="MultiTimer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:control="clr-namespace:MultiTimer"
+        mc:Ignorable="d"
+        Title="MultiTimer" Width="1300" SizeToContent="Height" Background="#FFE0E0EB" ContentRendered="Window_ContentRendered">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"></RowDefinition>
+			<RowDefinition Height="auto"></RowDefinition>
+		</Grid.RowDefinitions>
+
+		<ListBox x:Name="TimersListBox" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False" UseLayoutRounding="False" ItemsSource="{Binding TimerControls}">
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel Orientation='Horizontal'/>
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+			
+		</ListBox>
+
+		<Label x:Name="TotalTimerLabel" Content="00:00" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" FontSize="30" Grid.Row="1" Background="#FFF0EEF5"/>
+
+		<Button x:Name="AddButton" Content="Add Timer" HorizontalAlignment="Center" Margin="0,30,0,30" VerticalAlignment="Center" FontSize="36" Grid.Row="1" Background="#FFF0EEF5" Click="AddButton_Click"/>
+	</Grid>
+</Window>
