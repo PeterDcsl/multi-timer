@@ -104,29 +104,23 @@ namespace MultiTimer
 				SetTimeFromUI();
 		}
 
-		private void StartButton_Click(object sender, RoutedEventArgs e)
+		private void StartPauseButton_Click(object sender, RoutedEventArgs e)
 		{
-			if (!IsRunning)
-			{
-				IsRunning = true;
-				LastStartTime = DateTime.Now;
+			IsRunning = !IsRunning;
 
-				HoursTextBox.IsEnabled = false;
-				MinutesTextBox.IsEnabled = false;
-			}
-		}
+			HoursTextBox.IsEnabled = !IsRunning;
+			MinutesTextBox.IsEnabled = !IsRunning;
 
-		private void PauseButton_Click(object sender, RoutedEventArgs e)
-		{
 			if (IsRunning)
 			{
-				IsRunning = false;
+				LastStartTime = DateTime.Now;
+				StartPauseButton.Content = "Pause";
+			}
+			else
+			{
 				TotalTimeBeforeLastStart = TimerValue;
-
 				TimeSeparator.Visibility = Visibility.Visible;
-
-				HoursTextBox.IsEnabled = true;
-				MinutesTextBox.IsEnabled = true;
+				StartPauseButton.Content = "Start";
 			}
 		}
 
