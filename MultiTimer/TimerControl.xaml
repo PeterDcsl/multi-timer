@@ -33,6 +33,6 @@
         <Label x:Name="NameLabel" Content="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" FontSize="18" Grid.Row="2"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Width="181" Grid.Column="1" FontSize="16" Height="24" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLines="2" Text=""/>
 
-		<Button x:Name="StartPauseButton" Content="Start" Grid.Row="4" HorizontalAlignment="Center" Margin="0,10,0,10" FontSize="34" Background="#FFF6E3FF" Click="StartPauseButton_Click" Padding="10,1,10,1" BorderThickness="0,0,0,0"/>
+		<Button x:Name="StartPauseButton" Content="Start" Grid.Row="4" HorizontalAlignment="Center" Margin="0,10,0,10" FontSize="34" Background="#FFFFE3E3" Click="StartPauseButton_Click" Padding="10,1,10,1" BorderThickness="0,0,0,0"/>
     </Grid>
 </UserControl>
