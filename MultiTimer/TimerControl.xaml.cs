@@ -22,7 +22,7 @@ namespace MultiTimer
 		public event EventHandler CloseRequested;
 
 		private DateTime? LastStartTime { get; set; }
-		private TimeSpan TotalTimeBeforeLastStart { get; set; }
+		private TimeSpan TotalTimeBeforeLastStart { get; set; } = new TimeSpan();
 		private bool IsRunning
 		{
 			get { return UpdateTimer.Enabled; }
@@ -33,10 +33,10 @@ namespace MultiTimer
 		{
 			get
 			{
-				if (LastStartTime != null)
+				if (LastStartTime != null && IsRunning)
 					return TotalTimeBeforeLastStart + (DateTime.Now - LastStartTime.Value);
 				else
-					return new TimeSpan();
+					return TotalTimeBeforeLastStart;
 			}
 		}
 
@@ -67,10 +67,13 @@ namespace MultiTimer
 		}
 		private void SetTimeFromUI()
 		{
-			// assuming the input validation is solid
-			var hours = int.Parse(HoursTextBox.Text);
-			var minutes = int.Parse(MinutesTextBox.Text);
-			TotalTimeBeforeLastStart = new TimeSpan(hours, minutes, 0);
+			if (IsLoaded)
+			{
+				// assuming the input validation is solid
+				var hours = int.Parse(string.IsNullOrEmpty(HoursTextBox.Text) ? "0" : HoursTextBox.Text);
+				var minutes = int.Parse(string.IsNullOrEmpty(MinutesTextBox.Text) ? "0" : MinutesTextBox.Text);
+				TotalTimeBeforeLastStart = new TimeSpan(hours, minutes, 0);
+			}
 		}
 
 		#region Events
@@ -82,15 +85,15 @@ namespace MultiTimer
 
 		private void HourTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
-			var validText = int.TryParse(HoursTextBox.Text + e.Text, out int hour) && 0 <= hour;
+			var validText = int.TryParse(HoursTextBox.Text + e.Text, out int hours) && 0 <= hours;
 
 			e.Handled = !validText;
 		}
 
 		private void MinuteTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
-			var validText = int.TryParse(MinutesTextBox.Text + e.Text, out int minute) &&
-				0 <= minute && minute <= 59;
+			var validText = int.TryParse(MinutesTextBox.Text + e.Text, out int minutes) &&
+				0 <= minutes && minutes <= 59;
 
 			e.Handled = !validText;
 		}
@@ -102,6 +105,12 @@ namespace MultiTimer
 				e.Handled = true;
 		}
 
+		private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			if (!IsRunning)
+				SetTimeFromUI();
+		}
+
 		private void StartButton_Click(object sender, RoutedEventArgs e)
 		{
 			if (!IsRunning)
@@ -111,8 +120,6 @@ namespace MultiTimer
 
 				HoursTextBox.IsEnabled = false;
 				MinutesTextBox.IsEnabled = false;
-
-				SetTimeFromUI();
 			}
 		}
 

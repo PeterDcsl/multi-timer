@@ -25,9 +25,9 @@
                 <ColumnDefinition Width="5*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <TextBox x:Name="HoursTextBox" HorizontalAlignment="Right" Margin="10,10,0,0" Text="00" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="137" FontSize="100" Grid.Column="0" PreviewTextInput="HourTextBox_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" TextAlignment="Center"/>
+            <TextBox x:Name="HoursTextBox" HorizontalAlignment="Right" Margin="10,10,0,0" Text="00" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="137" FontSize="100" Grid.Column="0" PreviewTextInput="HourTextBox_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
             <Label x:Name="TimeSeparator" Content=":" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Height="145" Grid.Column="1"/>
-			<TextBox x:Name="MinutesTextBox" HorizontalAlignment="Left" Margin="0,10,10,0" Text="00" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="137" FontSize="100" Grid.Column="2" PreviewTextInput="MinuteTextBox_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" TextAlignment="Center"/>
+			<TextBox x:Name="MinutesTextBox" HorizontalAlignment="Left" Margin="0,10,10,0" Text="00" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="137" FontSize="100" Grid.Column="2" PreviewTextInput="MinuteTextBox_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
         </Grid>
 
         <Label x:Name="NameLabel" Content="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" FontSize="18" Grid.Row="2"/>

@@ -31,7 +31,7 @@ namespace MultiTimer
 			AddTimer();
 
 			UpdateTimer.Elapsed += TickTimer_Elapsed;
-			UpdateTimer.Interval = 1000;
+			UpdateTimer.Interval = 500;
 			UpdateTimer.Start();
 		}
 
@@ -51,14 +51,14 @@ namespace MultiTimer
 			TotalTimerLabel.Content = $"{hours}:{minutes}";
 		}
 
-		private void AddButton_Click(object sender, RoutedEventArgs e)
-		{
-			AddTimer();
-		}
-
 		private void TickTimer_Elapsed(object sender, ElapsedEventArgs e)
 		{
 			Dispatcher.BeginInvoke(new Action(() => UpdateTimeUI()));
+		}
+
+		private void AddButton_Click(object sender, RoutedEventArgs e)
+		{
+			AddTimer();
 		}
 
 		private void TimerControl_CloseRequested(object sender, EventArgs e)
