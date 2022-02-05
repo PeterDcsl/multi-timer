@@ -18,10 +18,11 @@
 					<StackPanel Orientation='Horizontal'/>
 				</ItemsPanelTemplate>
 			</ListBox.ItemsPanel>
-			
+
 		</ListBox>
 
-		<Label x:Name="TotalTimerLabel" Content="00:00" HorizontalAlignment="Left" Margin="100,0,0,0" VerticalAlignment="Center" FontSize="30" Grid.Row="1" Background="#FFF0EEF5"/>
+		<Label x:Name="TotalTimeLabelLabel" Content="Total:" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center" FontSize="20" Grid.Row="1"/>
+		<Label x:Name="TotalTimerLabel" Content="00:00" HorizontalAlignment="Left" Margin="139,0,0,0" VerticalAlignment="Center" FontSize="30" Grid.Row="1" Background="#FFF0EEF5"/>
 
 		<Button x:Name="AddButton" Content="Add Timer" HorizontalAlignment="Center" Margin="0,30,0,30" VerticalAlignment="Center" FontSize="36" Grid.Row="1" Background="#FFF0EEF5" Click="AddButton_Click"/>
 	</Grid>
