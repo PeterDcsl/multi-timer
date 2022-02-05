@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace MultiTimer
@@ -85,7 +75,9 @@ namespace MultiTimer
 
 		private void HourTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
-			var validText = int.TryParse(HoursTextBox.Text + e.Text, out int hours) && 0 <= hours;
+			var validText = int.TryParse(HoursTextBox.Text + e.Text, out int hours) &&
+				0 <= hours 
+				&& (HoursTextBox.Text + e.Text).Length <= 2;
 
 			e.Handled = !validText;
 		}
@@ -93,7 +85,8 @@ namespace MultiTimer
 		private void MinuteTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
 			var validText = int.TryParse(MinutesTextBox.Text + e.Text, out int minutes) &&
-				0 <= minutes && minutes <= 59;
+				0 <= minutes && minutes <= 59 
+				&& (MinutesTextBox.Text + e.Text).Length <= 2;
 
 			e.Handled = !validText;
 		}
