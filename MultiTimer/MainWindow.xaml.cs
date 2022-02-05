@@ -46,7 +46,7 @@ namespace MultiTimer
 		{
 			var timerValue = TimeSpan.FromTicks(TimerControlHolder.TimerControls.Sum(x => x.TimerValue.Ticks));
 
-			var hours = timerValue.Hours.ToString("D2");
+			var hours = Math.Floor(timerValue.TotalHours);
 			var minutes = timerValue.Minutes.ToString("D2");
 			TotalTimerLabel.Content = $"{hours}:{minutes}";
 		}
