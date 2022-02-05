@@ -49,7 +49,7 @@ namespace MultiTimer
 			if (IsRunning)
 			{
 				var timerValue = TimerValue;
-				HoursTextBox.Text = timerValue.Hours.ToString("D2");
+				HoursTextBox.Text = ((int)Math.Floor(timerValue.TotalHours)).ToString("D2");
 				MinutesTextBox.Text = timerValue.Minutes.ToString("D2");
 
 				TimeSeparator.Visibility = timerValue.Seconds % 2 == 0 ? Visibility.Visible : Visibility.Hidden;
