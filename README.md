@@ -1,6 +1,6 @@
 # multi-timer
 
-<img src="https://raw.githubusercontent.com/Syndallic/multi-timer/main/.github/images/multi-timer-screenshot.png" />
+![Multi-Timer](https://raw.githubusercontent.com/Syndallic/multi-timer/main/.github/images/timer-screenshot.png)
 
 ## What is this?
 
