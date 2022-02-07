@@ -106,12 +106,10 @@ namespace MultiTimer
 
 		private void StartPauseButton_Click(object sender, RoutedEventArgs e)
 		{
-			IsRunning = !IsRunning;
+			HoursTextBox.IsEnabled = IsRunning;
+			MinutesTextBox.IsEnabled = IsRunning;
 
-			HoursTextBox.IsEnabled = !IsRunning;
-			MinutesTextBox.IsEnabled = !IsRunning;
-
-			if (IsRunning)
+			if (!IsRunning)
 			{
 				LastStartTime = DateTime.Now;
 				StartPauseButton.Content = "Pause";
@@ -122,6 +120,8 @@ namespace MultiTimer
 				TimeSeparator.Visibility = Visibility.Visible;
 				StartPauseButton.Content = "Start";
 			}
+
+			IsRunning = !IsRunning;
 		}
 
 		/// <summary>
