@@ -5,34 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MultiTimer"
              mc:Ignorable="d" Background="#FFE7D6E7">
-    <Grid>
-        <Grid.RowDefinitions>
+	<Grid>
+		<Grid.RowDefinitions>
 			<RowDefinition Height="auto"></RowDefinition>
 			<RowDefinition Height="auto"></RowDefinition>
 			<RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-        </Grid.RowDefinitions>
+			<RowDefinition Height="auto"></RowDefinition>
+			<RowDefinition Height="auto"></RowDefinition>
+		</Grid.RowDefinitions>
 
 		<Button x:Name="CloseLabel" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" PreviewMouseLeftButtonUp="CloseLabel_PreviewMouseLeftButtonUp">
 			<TextBlock TextDecorations="Underline">[Close]</TextBlock>
 		</Button>
 
 		<Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="5*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="5*"></ColumnDefinition>
+				<ColumnDefinition Width="*"></ColumnDefinition>
+				<ColumnDefinition Width="5*"></ColumnDefinition>
+			</Grid.ColumnDefinitions>
 
-            <TextBox x:Name="HoursTextBox" HorizontalAlignment="Right" Margin="10,10,0,0" Text="00" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="137" FontSize="100" Grid.Column="0" PreviewTextInput="HourTextBox_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
-            <Label x:Name="TimeSeparator" Content=":" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Height="145" Grid.Column="1"/>
+			<TextBox x:Name="HoursTextBox" HorizontalAlignment="Right" Margin="10,10,0,0" Text="00" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="137" FontSize="100" Grid.Column="0" PreviewTextInput="HourTextBox_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
+			<Label x:Name="TimeSeparator" Content=":" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Height="145" Grid.Column="1"/>
 			<TextBox x:Name="MinutesTextBox" HorizontalAlignment="Left" Margin="0,10,10,0" Text="00" TextWrapping="Wrap" VerticalAlignment="Center" Width="123" Height="137" FontSize="100" Grid.Column="2" PreviewTextInput="MinuteTextBox_PreviewTextInput" PreviewKeyDown="TextBox_PreviewKeyDown" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
-        </Grid>
+		</Grid>
 
-        <Label x:Name="NameLabel" Content="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" FontSize="18" Grid.Row="2"/>
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Width="181" Grid.Column="1" FontSize="16" Height="24" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLines="2" Text=""/>
+		<Label x:Name="NameLabel" Content="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" FontSize="18" Grid.Row="2"/>
+		<TextBox x:Name="NameTextBox" HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Width="181" Grid.Column="1" FontSize="16" Height="24" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MaxLines="2" Text=""/>
 
 		<Button x:Name="StartPauseButton" Content="Start" Grid.Row="4" HorizontalAlignment="Center" Margin="0,10,0,10" FontSize="34" Background="#FFFFE3E3" Click="StartPauseButton_Click" Padding="10,1,10,1" BorderThickness="0,0,0,0"/>
-    </Grid>
+		<Button x:Name="ResetButton" Content="Reset" Grid.Row="4" HorizontalAlignment="Right" Margin="0,38,10,10" FontSize="14" Background="#FFFF7878" Click="ResetButton_Click" Padding="1,1,1,1" BorderThickness="0,0,0,0" Width="45"/>
+	</Grid>
 </UserControl>

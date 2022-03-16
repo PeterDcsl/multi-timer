@@ -76,7 +76,7 @@ namespace MultiTimer
 		private void HourTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
 			var validText = int.TryParse(HoursTextBox.Text + e.Text, out int hours) &&
-				0 <= hours 
+				0 <= hours
 				&& (HoursTextBox.Text + e.Text).Length <= 2;
 
 			e.Handled = !validText;
@@ -85,7 +85,7 @@ namespace MultiTimer
 		private void MinuteTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
 		{
 			var validText = int.TryParse(MinutesTextBox.Text + e.Text, out int minutes) &&
-				0 <= minutes && minutes <= 59 
+				0 <= minutes && minutes <= 59
 				&& (MinutesTextBox.Text + e.Text).Length <= 2;
 
 			e.Handled = !validText;
@@ -122,6 +122,12 @@ namespace MultiTimer
 			}
 
 			IsRunning = !IsRunning;
+		}
+
+		private void ResetButton_Click(object sender, RoutedEventArgs e)
+		{
+			LastStartTime = DateTime.Now;
+			TotalTimeBeforeLastStart = new TimeSpan();
 		}
 
 		/// <summary>
