@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,13 +33,18 @@ namespace MultiTimer
 
 		private Timer UpdateTimer { get; } = new Timer();
 
+		private IEnumerable<ProjectTask> ProjectTasks { get; }
 
-		public TimerControl()
+
+		public TimerControl(IEnumerable<ProjectTask> projectTasks)
 		{
 			InitializeComponent();
 
 			UpdateTimer.Elapsed += TickTimer_Elapsed;
 			UpdateTimer.Interval = 1000;
+
+			this.ProjectTasks = projectTasks;
+			TaskIdComboBox.ItemsSource = ProjectTasks;
 		}
 
 		/// <summary>
@@ -65,6 +71,17 @@ namespace MultiTimer
 				TotalTimeBeforeLastStart = new TimeSpan(hours, minutes, 0);
 			}
 		}
+
+		public TimesheetEntry GetTimesheetEntry()
+        {
+			return new TimesheetEntry()
+			{
+				Time = (int)TimerValue.TotalMinutes,
+				CommentText = NameTextBox.Text,
+				DevOpsTaskId = (TaskIdComboBox.SelectedItem as ProjectTask).Id,
+				ProjectId = (TaskIdComboBox.SelectedItem as ProjectTask).ProjectId,
+			};
+        }
 
 		#region Events
 

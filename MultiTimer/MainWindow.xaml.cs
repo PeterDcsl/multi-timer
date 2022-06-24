@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Timers;
 using System.Windows;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace MultiTimer
 {
@@ -37,7 +38,21 @@ namespace MultiTimer
 
 		private void AddTimer()
 		{
-			var timerControl = new TimerControl();
+			IEnumerable<ProjectTask> projectTasks = new List<ProjectTask>
+			{
+				new ProjectTask
+                {
+					Id = 0,
+					Title = "Hello"
+                },
+				new ProjectTask
+				{
+					Id = 1,
+					Title = "there"
+				},
+			};
+
+			var timerControl = new TimerControl(projectTasks);
 			TimerControlHolder.TimerControls.Add(timerControl);
 			timerControl.CloseRequested += TimerControl_CloseRequested;
 		}
