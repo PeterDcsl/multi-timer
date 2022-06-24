@@ -61,6 +61,17 @@ namespace MultiTimer
 			AddTimer();
 		}
 
+		private void SubmitButton_Click(object sender, RoutedEventArgs e)
+		{
+			CredentialsModal credentialsModal = new CredentialsModal();
+			Nullable<bool> dialogResult = credentialsModal.ShowDialog();
+
+			if (dialogResult.Value)
+            {
+				var username = credentialsModal.Username;
+            }
+		}
+
 		private void TimerControl_CloseRequested(object sender, EventArgs e)
 		{
 			TimerControlHolder.TimerControls.Remove(sender as TimerControl);

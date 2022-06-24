@@ -24,6 +24,8 @@
 		<Label x:Name="TotalTimeLabelLabel" Content="Total:" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Center" FontSize="20" Grid.Row="1"/>
 		<Label x:Name="TotalTimerLabel" Content="00:00" HorizontalAlignment="Left" Margin="139,0,0,0" VerticalAlignment="Center" FontSize="30" Grid.Row="1" Background="#FFF0EEF5"/>
 
-		<Button x:Name="AddButton" Content="Add Timer" HorizontalAlignment="Center" Margin="0,30,0,30" VerticalAlignment="Center" FontSize="36" Grid.Row="1" Background="#FFF0EEF5" Click="AddButton_Click" Padding="5,1,5,1"/>
+        <Button x:Name="AddButton" Content="Add Timer" HorizontalAlignment="Center" Margin="0,30,0,30" VerticalAlignment="Center" FontSize="36" Grid.Row="1" Background="#FFF0EEF5" Click="AddButton_Click" Padding="5,1,5,1"/>
+        
+        <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Right" Margin="0,30,60,30" VerticalAlignment="Center" FontSize="36" Grid.Row="2" Background="#FFE4ACC6" Click="SubmitButton_Click" Padding="5,1,5,1"/>
 	</Grid>
 </Window>
